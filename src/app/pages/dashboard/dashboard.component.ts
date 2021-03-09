@@ -231,7 +231,7 @@ export class DashboardComponent implements OnInit {
   }
 
   onOpenAddAccount() {
-    const dialog = this.dialog.open(AddAccountComponent, { width: '360px', maxHeight: '99vh' });
+    const dialog = this.dialog.open(AddAccountComponent, { width: '700px', maxHeight: '99vh' });
 
     dialog.afterClosed().subscribe((added: boolean) => {
       if (added) {
@@ -255,16 +255,6 @@ export class DashboardComponent implements OnInit {
         this.currAcc = account;
         this.authServ.getAccountsWithBalance().then(accounts => (this.accounts = accounts));
       }
-    });
-  }
-
-  async onComingSoonPage() {
-    const message = getTranslation('coming soon', this.translate);
-    Swal.fire({
-      type: 'info',
-      title: message,
-      showConfirmButton: false,
-      timer: 1500,
     });
   }
 }
